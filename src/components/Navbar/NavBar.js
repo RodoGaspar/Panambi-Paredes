@@ -3,10 +3,10 @@ import './NavBar.css';
 
 const NavBar = () =>{
     return(
-        <nav class="navbar navbar-expand-lg navbar-light bg-cabezon">
-            <div class="container-fluid">
-                <a class="navbar-brand" href=""><img class="logopanambi" src="imagenes/PanambiLogo.png" alt="Logo de Panambí"/></a>
-            <button class="navbar-toggler bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <nav className='bg-cabezon'>
+            <div>
+                <a /* class="navbar-brand" href="" */><img className="logopanambi" src="./imagenes/PanambiLogo.png" alt="Logo de Panambí"/></a>
+            <button className="navbar-toggler bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">          
