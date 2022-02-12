@@ -6,13 +6,13 @@
     height: 55vh;
   }
   
-  .bg-cabezon div a img {
+  .logopanambi {
     height: 40vh;
     border-radius: 50%;
     opacity: 95%;
   }
   
-  .bg-cabezon ul li {
+  .navLink {
     display: inline-block;
     background-color: #3e8f138f;
     border: 1px outset #3e8f13;
@@ -23,7 +23,7 @@
     width: 20w;
   }
   
-  nav div div ul li a {
+  .navLink {
     text-decoration: none;
     color: #fffd91 !important;
     font-size: 3rem;
@@ -31,10 +31,10 @@
     font-family: "Open Sans", sans-serif;
   }
   
-  .bg-cabezon ul li:hover {
+  .navLink:hover {
     background-color: #892be27f;
   }
   
-  .bg-cabezon ul li ul li:hover {
+/*   .bg-cabezon ul li ul li:hover {
     background-color: #892be27f;
-  }
+  } */

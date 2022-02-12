@@ -1,15 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from './components/Navbar/NavBar';
+import NaviBar from './components/Navibar/NaviBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js';
+import Contador from './components/ItemCount/ItemCount';
 
 
 function App() {
   return (
     <div className="App">
-      <NavBar/>
+      <NaviBar/>
       <ItemListContainer title= 'Bienvenidos a la Tienda de Panambi'/>
+      <Contador stock={9} initial={0}/>
     </div>
   );
 }
