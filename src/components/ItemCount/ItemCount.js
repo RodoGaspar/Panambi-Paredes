@@ -5,20 +5,26 @@ const Contador = ({stock, initial, onAdd}) =>{
   const [disable, setDisable] = useState(false);
 
   const mas = () =>{
-      number < stock ? setNumber(number+ 1) : setDisable(true);
+      number < stock && setNumber(number+ 1);
   };
   const menos = () => {
-      number > initial && setNumber(number-1) && setDisable(false);
+      number > initial && setNumber(number-1);
   };
+  const disMas = () =>{
+      number === stock ? setDisable(true) : setDisable(false)
+  };
+  const disMenos = () =>{
+      number <= initial ? setDisable(true) : setDisable(false)
+  } 
   
 
   
   return(
       <div className="tarjeta">
           <div>
-              <button disabled={disable} onClick={mas} className="tarjBtn">+</button>
+              <button disabled={disMas()} onClick={mas} className="tarjBtn">+</button>
               <p>{number}</p>
-              <button disabled={disable} onClick={menos} className="tarjBtn">-</button>
+              <button disabled={disMenos()} onClick={menos} className="tarjBtn">-</button>
               <button >Agregar al carrito</button>
           </div>
       </div>
