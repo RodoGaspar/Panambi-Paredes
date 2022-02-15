@@ -1,8 +1,8 @@
 .tarjeta{
     display: flex;
-    flex-direction: column ;
+    flex-direction:column ;
     align-items:center;
-    justify-items:center;
+    justify-items:baseline;
     width: 20 vw;
     background-color: #3e8f138f;
     border: 2px solid #a15ce2d0;
