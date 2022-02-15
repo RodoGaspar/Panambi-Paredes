@@ -1,0 +1,41 @@
+.tarjeta{
+    display: flex;
+    flex-direction: column ;
+    align-items:center;
+    justify-items:center;
+    width: 20 vw;
+    background-color: #3e8f138f;
+    border: 2px solid #a15ce2d0;
+    justify-content: space-between;
+    
+}
+.tarjBtnMas{
+    display: flex;
+    justify-content: right;
+    background-color: #fffd91;
+    border: 2px solid #a15ce2d0;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+.numerito{
+    display: flex;
+    justify-content: center;
+    background-color: #fffd91;
+    border: 2px solid #a15ce2d0;
+}
+.tarjBtnMenos{
+    display: flex;
+    align-self:baseline;
+    justify-content: left;
+    background-color: #fffd91;
+    border: 2px solid #a15ce2d0;
+    border-radius: 50%; 
+}
+.addTo{
+    display: flex;
+    justify-content: baseline;
+    background-color: #fffd91;
+    border: 2px solid #a15ce2d0;
+    border-radius: 50%;
+    font-family:sans-serif;  
+}
