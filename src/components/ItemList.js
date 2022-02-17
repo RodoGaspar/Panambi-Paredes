@@ -9,8 +9,8 @@ const ItemList = ({prods}) => {
                 alingnItems: 'center',
             }}
         >
-            {prods.map((producto)=> (
-                <Item {... producto} key={prods.id}/>
+            {prods.map((producto) => (
+                <Item {...producto} key={producto.id}/>
             ))}
         </div>
     );
