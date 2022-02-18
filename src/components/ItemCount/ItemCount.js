@@ -19,9 +19,9 @@ const addToKart = () => {
       <div className="tarjeta">
           <div>
               <button disabled={number>=stock} onClick={mas} className="tarjBtnMas">+</button>
-              <p className="numerito">{number}</p>
-              <button className="tarjBtnMenos" /* disabled={number<=initial} */ onClick={menos} >-</button>
-              <button /* disabled={number === 0 || stock === 0} */ onClick={()=> number > 0 ? addToKart(): null} className="addTo" >Agregar al carrito</button>
+              <p className="numerito" style={{color: '#E61C37'}}>{number}</p>
+              <button className="tarjBtnMenos" disabled={number<=initial} onClick={menos} >-</button>
+              <button disabled={number === 0 || stock === 0} onClick={()=> number > 0 ? addToKart(): null} className="addTo" >Agregar al carrito</button>
           </div>
       </div>
   );

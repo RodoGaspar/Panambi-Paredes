@@ -1,15 +1,19 @@
-const Item = (size, foto, precio) => {
+import Contador from './ItemCount/ItemCount';
+
+const Item = ({size, foto, precio}) => {
     return(
         <div
             style={{
                 display: 'flex',
                 flexDirection: 'column',
-                border: '2px solid #7630E6'
+                border: '2px solid #7630E6',
+                margin: '40px',
             }}
         >
             <h3>{size}</h3>
             <img src={foto} width='150px' alt={size}/>
-            <h4>{precio}</h4>
+            <h4>$ {precio}</h4>
+            <Contador stock={9} initial={0}/>
         </div>
     );
 
