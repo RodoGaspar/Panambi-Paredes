@@ -1,4 +1,4 @@
-import Contador from './ItemCount/ItemCount';
+import ItemCount from './ItemCount/ItemCount';
 
 const Item = ({size, foto, precio}) => {
     return(
@@ -13,7 +13,7 @@ const Item = ({size, foto, precio}) => {
             <h3>{size}</h3>
             <img src={foto} width='150px' alt={size}/>
             <h4>$ {precio}</h4>
-            <Contador stock={9} initial={0}/>
+            <ItemCount stock={20} initial={0}/>
         </div>
     );
 

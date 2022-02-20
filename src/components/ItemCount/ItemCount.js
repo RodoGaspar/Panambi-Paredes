@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './ItemCount.css'
 
-const Contador = ({stock, initial, onAdd}) =>{
+const ItemCount = ({stock, initial, onAdd}) =>{
   const [number, setNumber] = useState(0);
 
   const mas = () =>{
@@ -27,4 +27,4 @@ const addToKart = () => {
   );
 };
 
-export default Contador;
+export default ItemCount;
