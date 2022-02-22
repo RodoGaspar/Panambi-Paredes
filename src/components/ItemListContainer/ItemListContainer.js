@@ -12,13 +12,13 @@ const ItemListContainer = ({title}) => {
             .then((res) => {
                 setProds(res);
             })
-            .catch((error) => {
-                console.log(error);
-            })
             .finally(() => {
                 setCargando(false)
             })
-    }, []);
+            .catch((error) => {
+                console.log(error);
+            })
+            }, []);
 
     return (
         <>

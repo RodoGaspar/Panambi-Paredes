@@ -37,5 +37,5 @@ export const prods = [
 export const upProds = new Promise ((resolve, reject) => {
     setTimeout(() => {
         resolve(prods); 
-    }, 3000);
+    }, 2000);
 });
