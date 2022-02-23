@@ -1,6 +1,6 @@
-import ItemCount from './ItemCount/ItemCount';
+import {ItemCount} from './ItemCount/ItemCount';
 
-const Item = ({size, foto, precio}) => {
+export const Item = ({size, foto, precio}) => {
     return(
         <div
             style={{
@@ -18,5 +18,3 @@ const Item = ({size, foto, precio}) => {
     );
 
 };
-
-export default Item

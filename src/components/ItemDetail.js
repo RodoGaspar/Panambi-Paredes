@@ -1,6 +1,6 @@
-import ItemCount from './ItemCount/ItemCount';
+import {ItemCount} from './ItemCount/ItemCount';
 
-const ItemDetail = ({id, size, foto, info, precio}) => {
+export const ItemDetail = ({id, size, foto, info, precio}) => {
     return(
         <div
             style={{
@@ -28,4 +28,3 @@ const ItemDetail = ({id, size, foto, info, precio}) => {
 
 
 };
-export default ItemDetail;

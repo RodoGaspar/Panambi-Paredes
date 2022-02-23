@@ -1,8 +1,8 @@
-import  ItemDetail  from "./ItemDetail";
+import  {ItemDetail}  from "./ItemDetail";
 import {useEffect, useState} from "react";
 import { upProds } from "./prods";
 
-const ItemDetailContainer = () => {
+export const ItemDetailContainer = () => {
    const [item, setItem] = useState ([]);
    const [loading, setLoading] = useState(true);
 
@@ -10,9 +10,7 @@ const ItemDetailContainer = () => {
         upProds
         .then((res) => {
             setItem(res);
-        })
-        .finally(() => {
-            setLoading(false)
+            setLoading(false);
         })
         .catch((error) => {
             console.log(error);
@@ -36,4 +34,3 @@ const ItemDetailContainer = () => {
         </>
    ) 
 };
-export default ItemDetailContainer;

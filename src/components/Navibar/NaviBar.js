@@ -7,16 +7,16 @@ import Container from 'react-bootstrap/Container'
 import LogoPanambi from './imagenes/PanambiLogo.png';
 import {CartWidget} from '../CartWidget/CartWidget';
 
-const NaviBar = () => {
+export const NaviBar = () => {
     return (    
         <Navbar collapseOnSelect expand="lg"  className='bg-cabezon'>
             <Container>
-                <Navbar.Brand href="#home"><img className="logopanambi" src={LogoPanambi} alt="Logo de Panambí"/></Navbar.Brand>
+                <Navbar.Brand href="/"><img className="logopanambi" src={LogoPanambi} alt="Logo de Panambí"/></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="navegador">
-                    <Nav.Link className="navLink" href="#home">Inicio</Nav.Link>
-                    <Nav.Link className="navLink" href="#link">Link</Nav.Link>
+                    <Nav.Link className="navLink" href="/">Inicio</Nav.Link>
+                    <Nav.Link className="navLink" href="/item-detail">Link</Nav.Link>
                     <NavDropdown className="navLink" title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -31,5 +31,3 @@ const NaviBar = () => {
         </Navbar>
     )
 }
-
-export default NaviBar

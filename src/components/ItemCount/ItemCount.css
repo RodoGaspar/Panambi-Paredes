@@ -9,13 +9,18 @@
     justify-content: space-between;
     
 }
+.contador{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 .tarjBtnMas{
     display: flex;
     justify-content: right;
+    align-self: baseline;
     background-color: #fffd91;
     border: 2px solid #a15ce2d0;
     border-radius: 50%;
-    margin-bottom: 5px;
 }
 .numerito{
     display: flex;

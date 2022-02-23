@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import './ItemListContainer.css';
 import { upProds } from "../prods";
-import ItemList from "../ItemList";
+import {ItemList} from "../ItemList";
 
-const ItemListContainer = ({title}) => {
+export const ItemListContainer = ({title}) => {
     const [produ, setProds] = useState([]);
     const [cargando, setCargando] = useState(true);
 
@@ -11,9 +11,7 @@ const ItemListContainer = ({title}) => {
         upProds
             .then((res) => {
                 setProds(res);
-            })
-            .finally(() => {
-                setCargando(false)
+                setCargando(false);
             })
             .catch((error) => {
                 console.log(error);
@@ -38,5 +36,3 @@ const ItemListContainer = ({title}) => {
         
     );
 };
-
-export default ItemListContainer
