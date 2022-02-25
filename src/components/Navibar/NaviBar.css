@@ -1,5 +1,5 @@
 .bg-cabezon {
-    background-image: url(./imagenes/Vincent_van_Gogh_-_Grass_and_butterflies.jpg);
+    background-image: url(../../assets/Vincent_van_Gogh_-_Grass_and_butterflies.jpg);
     background-position: center, bottom;
     background-size: 100%;
     background-attachment: fixed;
@@ -21,20 +21,12 @@
     margin: 0rem 0.2rem;
     transition: all 1.5s;
     width: 20w;
-  }
-  
-  .navLink {
     text-decoration: none;
     color: #fffd91 !important;
     font-size: 3rem;
-    
     font-family: "Open Sans", sans-serif;
   }
   
   .navLink:hover {
     background-color: #892be27f;
   }
-  
-/*   .bg-cabezon ul li ul li:hover {
-    background-color: #892be27f;
-  } */

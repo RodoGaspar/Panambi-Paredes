@@ -1,0 +1,52 @@
+footer {
+    background-image: url(../../assets/Vincent_van_Gogh_-_Grass_and_butterflies.jpg);
+    background-position: center, bottom;
+    background-size: 100%;
+    background-attachment: fixed;
+    color: #3e8f13;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  
+  footer div div a img {
+    height: 17rem;
+    border-radius: 50%;
+  }
+  
+  footer .mapita {
+    margin: 1rem 0rem;
+  }
+  
+  footer .redesSociales {
+    background-color: #87ff47;
+    display: inline-block;
+    margin: 2rem 0rem;
+    padding: 1.5rem 1rem;
+  }
+  
+  footer .redesSociales p {
+    font-size: 2rem;
+  }
+  
+  footer .redesSociales ul li {
+    list-style: none;
+  }
+  
+  footer .redesSociales ul li a img {
+    width: 3rem;
+  }
+  
+  footer .redesSociales ul li p {
+    display: inline-block;
+    font-size: 2rem;
+  }
+  
+  .goUp {
+    color: #b1ff86;
+    background-color: #3e8f13;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin: 5rem 0rem;
+  }

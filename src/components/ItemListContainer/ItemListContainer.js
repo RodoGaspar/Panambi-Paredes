@@ -1,14 +1,26 @@
 import {useEffect, useState} from "react";
 import './ItemListContainer.css';
-import { upProds } from "../prods";
+import { prods } from "../prods";
 import {ItemList} from "../ItemList";
+import { Link } from "react-router-dom";
+import { Item } from "../Item";
 
 export const ItemListContainer = ({title}) => {
     const [produ, setProds] = useState([]);
     const [cargando, setCargando] = useState(true);
+    const prodList = ()=>{
+        return new Promise((resolve, reject)=>{
+            const upProds = prods;
+            setTimeout(()=>{
+                resolve(upProds)
+            }, 2000)
+        })
+    }
+
+    
 
     useEffect(() => {
-        upProds
+        prodList ()
             .then((res) => {
                 setProds(res);
                 setCargando(false);
@@ -17,6 +29,7 @@ export const ItemListContainer = ({title}) => {
                 console.log(error);
             })
             }, []);
+            console.log('productos', produ)
 
     return (
         <>
@@ -26,8 +39,11 @@ export const ItemListContainer = ({title}) => {
             ):(
                 <>
                     <div className="listContainer">
-                        <h1>{title}</h1>
-                        <ItemList prods={produ}/>
+                        <h1>{title}</h1>;
+                        {/* <Link to={`/item/:${produ.id}`}> */}
+                        
+                            <ItemList prods={produ}/>
+                        {/* </Link> */}     
                     </div>
                 </>
             )}

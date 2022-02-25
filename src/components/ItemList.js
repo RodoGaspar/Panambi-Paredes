@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {Item} from "./Item";
 
 export const ItemList = ({prods}) => {
@@ -10,8 +11,9 @@ export const ItemList = ({prods}) => {
             }}
         >
             {prods.map((producto) => (
-                <Item {...producto} key={producto.id}/>
-                
+                /* <Link to={`/item/:${producto.id}`}> */
+                    <Item {...producto} key={producto.id}/>
+                /* </Link> */    
             ))}
         </div>
     );

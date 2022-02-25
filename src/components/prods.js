@@ -38,8 +38,8 @@ export const prods = [
     },
 ]
 
-export const upProds = new Promise ((resolve, reject) => {
+/* export const upProds = new Promise ((resolve, reject) => {
     setTimeout(() => {
         resolve(prods); 
     }, 2000);
-});
+}); */

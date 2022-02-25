@@ -1,6 +1,6 @@
 import {ItemCount} from './ItemCount/ItemCount';
 
-export const ItemDetail = ({id, size, foto, info, precio}) => {
+export const ItemDetail = ({props}) => {
     return(
         <div
             style={{
@@ -10,16 +10,16 @@ export const ItemDetail = ({id, size, foto, info, precio}) => {
                 margin: '40px',
             }}
         >
-            <h1>{size}</h1>
+            <h1>{props.size}</h1>
             <div 
                 style={{
                     display: 'flex',
                     flexDirection: 'row',
             }}> 
-                <img src={foto} width='200px' alt={size}/>
+                <img src={props.foto} width='200px' alt={props.size}/>
                 <div>
-                    <p>{info}</p>
-                    <h2>{precio}</h2>
+                    <p>{props.info}</p>
+                    <h2>{props.precio}</h2>
                 </div>
             </div>
             <ItemCount stock={20} initial={0}/>
