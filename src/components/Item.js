@@ -15,7 +15,7 @@ export const Item = ({id, size, foto, precio}) => {
             <img src={foto} width='150px' alt={size}/>
             <h4>$ {precio}</h4>
             <ItemCount stock={20} initial={0}/>
-            <Link to={`/item/:${id}`}>
+            <Link to={`/item/${id}`}>
                 <button>Ver Más</button>
             </Link>
 

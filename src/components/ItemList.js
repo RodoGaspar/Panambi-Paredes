@@ -11,9 +11,7 @@ export const ItemList = ({prods}) => {
             }}
         >
             {prods.map((producto) => (
-                /* <Link to={`/item/:${producto.id}`}> */
-                    <Item {...producto} key={producto.id}/>
-                /* </Link> */    
+                    <Item {...producto} key={producto.id}/>    
             ))}
         </div>
     );

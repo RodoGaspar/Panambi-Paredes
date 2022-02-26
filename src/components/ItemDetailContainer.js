@@ -8,10 +8,11 @@ export const ItemDetailContainer = () => {
    console.log('parametro recibido', id)
    const [itemProp, setItemProp] = useState ([]);
 
-   const getupProdsDB = (nombreProducto) =>{
+   const getupProdsDB = (id) =>{
        return new Promise((resolve, reject)=>{
            const arrProdsDB = prods;
-           const itemProp = arrProdsDB.find((elemento)=>elemento.id===nombreProducto);
+           const itemPropAux = arrProdsDB.find((elemento)=>elemento.id===Number(id));
+           setItemProp(itemPropAux)
            setTimeout(()=>{
             resolve(itemProp)
            }, 2000)
