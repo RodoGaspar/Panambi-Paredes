@@ -2,8 +2,6 @@ import {useEffect, useState} from "react";
 import './ItemListContainer.css';
 import { prods } from "../prods";
 import {ItemList} from "../ItemList";
-import { Link } from "react-router-dom";
-import { Item } from "../Item";
 
 export const ItemListContainer = ({title}) => {
     const [produ, setProds] = useState([]);
@@ -35,15 +33,17 @@ export const ItemListContainer = ({title}) => {
         <>
 
             {cargando ? (
-                <h1>Cargando productos...</h1>
+                <h1 style={{
+                    color: '#fffd91',
+                    backgroundColor: '#892be27f',
+                    height: '100%',
+                    textAlign: 'center',
+                }}>Cargando productos...</h1>
             ):(
                 <>
                     <div className="listContainer">
-                        <h1>{title}</h1>;
-                        {/* <Link to={`/item/:${produ.id}`}> */}
-                        
-                            <ItemList prods={produ}/>
-                        {/* </Link> */}     
+                        <h1>{title}</h1>
+                        <ItemList prods={produ}/>    
                     </div>
                 </>
             )}

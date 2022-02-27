@@ -20,7 +20,7 @@ const addToKart = () => {
           <div>
               <div className="contador">
                 <button disabled={number>=stock} onClick={mas} className="tarjBtnMas">+</button>
-                <p className="numerito" style={{color: '#E61C37'}}>{number}</p>
+                <p className="numerito">{number}</p>
                 <button className="tarjBtnMenos" disabled={number<=initial} onClick={menos} >-</button>
               </div>
                 

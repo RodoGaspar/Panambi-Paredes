@@ -6,6 +6,7 @@ import zorroBoreal from '../assets/zorro_boreal.jpg';
 export const prods = [
     {
         id: 1,
+        cat: "maceta",
         size: "Maceta S",
         foto: Lfante,
         info: "Es nuestro formato mas pequeño, ideal para germinar, plantas chicas o plántulas.",
@@ -14,6 +15,7 @@ export const prods = [
     },
     {
         id: 2,
+        cat: "maceta",
         size: "Maceta M",
         foto: Gatitos,
         info: "Este tamaño se recomienda para plantas pequeñas a medianas pensando siempre en hacer un transplante en la siguiente estación o cuando la planta lo requiera.",
@@ -22,6 +24,7 @@ export const prods = [
     },
     {
         id: 3,
+        cat: "maceta",
         size: "Maceta L",
         foto: Sol14,
         info: "Tamaño recomiendado para plantas medianas que se quieran mantener en ese tamaño, o bien en transición de medianas a grandes.",
@@ -30,6 +33,7 @@ export const prods = [
     },
     {
         id: 4,
+        cat: "maceta",
         size: "Maceta XL",
         foto: zorroBoreal,
         info: "Perfecta para plantas medianas o grandes en crecimiento, dependiendo del desarrollo de las mismas puede transplantarse a tamaños más grandes o pasarse a tierra.",
@@ -37,9 +41,3 @@ export const prods = [
         stock: 40,
     },
 ]
-
-/* export const upProds = new Promise ((resolve, reject) => {
-    setTimeout(() => {
-        resolve(prods); 
-    }, 2000);
-}); */

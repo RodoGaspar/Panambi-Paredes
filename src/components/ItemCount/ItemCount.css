@@ -4,7 +4,8 @@
     align-items:center;
     justify-items:baseline;
     width: 20 vw;
-    background-color: #3e8f138f;
+    background-color: #3e8f13;
+    background: radial-gradient(circle, #b1ff86 0%, #3e8f13 100%);
     border: 2px solid #a15ce2d0;
     justify-content: space-between;
     
@@ -18,29 +19,32 @@
     display: flex;
     justify-content: right;
     align-self: baseline;
-    background-color: #fffd91;
-    border: 2px solid #a15ce2d0;
+    background-color: #b1ff86;
+    border: 2px solid #b1ff86;
     border-radius: 50%;
 }
 .numerito{
+    width: 3vw;
     display: flex;
     justify-content: center;
-    background-color: #fffd91;
-    border: 2px solid #a15ce2d0;
+    border-radius: 20%;
+    color: #fffd91;
+    background-color: #a15ce2d0;
+    border: 2px solid #b1ff86;
 }
 .tarjBtnMenos{
     display: flex;
     align-self:baseline;
     justify-content: left;
-    background-color: #fffd91;
-    border: 2px solid #a15ce2d0;
+    background-color: #b1ff86;
+    border: 2px solid #b1ff86;
     border-radius: 50%; 
 }
 .addTo{
     display: flex;
     justify-content: baseline;
-    background-color: #fffd91;
-    border: 2px solid #a15ce2d0;
-    border-radius: 50%;
+    background-color: #b1ff86;
+    border: 2px solid #b1ff86;
+    border-radius: 60%;
     font-family:sans-serif;  
 }
