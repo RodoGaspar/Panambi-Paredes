@@ -1,6 +1,15 @@
+import { Button } from 'bootstrap';
+import { useState } from 'react';
 import {ItemCount} from './ItemCount/ItemCount';
 
 export const ItemDetail = ({props}) => {
+    const [cantidad, setCantidad] = useState(Number)
+
+    const addToCart = (numero)=>{
+        console.log('numero', numero);
+        setCantidad(numero);
+        console.log('cantidad', cantidad);
+    }
     return(
         <div
             style={{
@@ -32,7 +41,8 @@ export const ItemDetail = ({props}) => {
                     <h2>${props.precio}</h2>
                 </div>
             </div>
-            <ItemCount stock={20} initial={0}/>
+            <ItemCount stock={props.stock} initial={0} onAdd={(numero)=> addToCart(numero)} style={{display: cantidad ?'none' : 'block'}}/>
+            <button style={{display: cantidad > 0 ? 'block' : 'none'}}>Terminar Compra</button>
         </div>
     );
 

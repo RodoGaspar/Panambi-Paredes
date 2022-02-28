@@ -2,29 +2,29 @@ import React, {useState} from "react";
 import './ItemCount.css'
 
 export const ItemCount = ({stock, initial, onAdd}) =>{
-  const [number, setNumber] = useState(0);
+  const [numero, setNumero] = useState(0);
 
   const mas = () =>{
-      number < stock && setNumber(number+ 1);
+      numero < stock && setNumero(numero+ 1);
   };
   const menos = () => {
-      number > initial && setNumber(number-1);
+      numero > initial && setNumero(numero-1);
   };
  
-const addToKart = () => {
-    alert('Agregaste ' + number + ' productos al carrito')
-};
+/* const addToKart = () => {
+    alert('Agregaste ' + numero + ' productos al carrito');
+
+}; */
   
   return(
       <div className="tarjeta">
           <div>
               <div className="contador">
-                <button disabled={number>=stock} onClick={mas} className="tarjBtnMas">+</button>
-                <p className="numerito">{number}</p>
-                <button className="tarjBtnMenos" disabled={number<=initial} onClick={menos} >-</button>
+                <button disabled={numero>=stock} onClick={mas} className="tarjBtnMas">+</button>
+                <p className="numerito">{numero}</p>
+                <button className="tarjBtnMenos" disabled={numero<=initial} onClick={menos} >-</button>
               </div>
-                
-              <button disabled={number === 0 || stock === 0} onClick={()=> number > 0 ? addToKart(): null} className="addTo" >Agregar al carrito</button>
+              <button disabled={numero === 0 || stock === 0} onClick={()=> onAdd(numero)} className="addTo">Agregar al carrito</button>
           </div>
       </div>
   );
