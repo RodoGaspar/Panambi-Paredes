@@ -1,6 +1,6 @@
-import { Button } from 'bootstrap';
 import { useState } from 'react';
 import {ItemCount} from './ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 export const ItemDetail = ({props}) => {
     const [cantidad, setCantidad] = useState(Number)
@@ -41,8 +41,14 @@ export const ItemDetail = ({props}) => {
                     <h2>${props.precio}</h2>
                 </div>
             </div>
-            <ItemCount stock={props.stock} initial={0} onAdd={(numero)=> addToCart(numero)} style={{display: cantidad ?'none' : 'block'}}/>
-            <button style={{display: cantidad > 0 ? 'block' : 'none'}}>Terminar Compra</button>
+            <div  style={{display: cantidad > 0 ? 'none' : 'block'}}>
+                <ItemCount stock={props.stock} initial={0} onAdd={(numero)=> addToCart(numero)} />
+            </div>
+            <Link to={'/cart'}> 
+                <button style={{
+                    display: cantidad > 0 ? 'block' : 'none',
+                    backgroundColor: '#7830E6'}}>Terminar Compra</button>
+            </Link>
         </div>
     );
 
