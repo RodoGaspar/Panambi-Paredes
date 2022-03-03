@@ -9,6 +9,7 @@ export const ItemDetail = ({props}) => {
         console.log('numero', numero);
         setCantidad(numero);
         console.log('cantidad', cantidad);
+        
     };
     const newCartContext = useContext(CartContext);
     console.log('context', newCartContext)
@@ -46,10 +47,11 @@ export const ItemDetail = ({props}) => {
             <div  style={{display: cantidad > 0 ? 'none' : 'block'}}>
                 <ItemCount stock={props.stock} initial={0} onAdd={(numero)=> addToCart(numero)} />
             </div>
+            {console.log('props', props)}
             <Link to={'/cart'}> 
                 <button style={{
                     display: cantidad > 0 ? 'block' : 'none',
-                    backgroundColor: '#7830E6'}}>Terminar Compra</button>
+                    backgroundColor: '#7830E6'}} onClick={()=> newCartContext.addItem({item: props, quantity: cantidad})}>Terminar Compra</button>
             </Link>
         </div>
     );
