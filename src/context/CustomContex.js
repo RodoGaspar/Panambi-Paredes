@@ -4,20 +4,21 @@ import { useState } from "react";
 export const CustomContex = ({children}) => {
 const [cart, setCart] = useState([]);
 
-const addItem = (newItem, quantity) =>{
-    setCart([...cart, {item: newItem, quantity: quantity}])
+const addItem = (props, quantity) =>{
+    setCart([...cart, {...props, quantity}])
 };
 
-const removeItem = (itemId) =>{
-
+/* en Proceso, no logro resolverla */
+ const removeItem = (i, itemId) =>{
+    i.splice(itemId, 1);
 };
 
 const clear = () => {
-
+    setCart([]);
 };
 
-const isInCart = () => {
-
+const isInCart = (cart, id) => {
+    return cart.some(cartId => id === cartId); 
 }; 
 
     return(

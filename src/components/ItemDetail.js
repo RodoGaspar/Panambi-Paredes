@@ -6,8 +6,8 @@ import { CartContext } from '../context/cartContext';
 export const ItemDetail = ({props}) => {
     const [cantidad, setCantidad] = useState(Number);
     const addToCart = (numero)=>{
-        console.log('numero', numero);
         setCantidad(numero);
+        console.log('numero', numero);
         console.log('cantidad', cantidad);
         
     };
@@ -51,7 +51,7 @@ export const ItemDetail = ({props}) => {
             <Link to={'/cart'}> 
                 <button style={{
                     display: cantidad > 0 ? 'block' : 'none',
-                    backgroundColor: '#7830E6'}} onClick={()=> newCartContext.addItem({item: props, quantity: cantidad})}>Terminar Compra</button>
+                    backgroundColor: '#7830E6'}} onClick={()=> newCartContext.addItem({props, cantidad})}>Terminar Compra</button>
             </Link>
         </div>
     );

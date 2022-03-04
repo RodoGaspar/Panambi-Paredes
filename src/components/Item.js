@@ -17,7 +17,6 @@ export const Item = ({id, size, foto, precio, stock}) => {
             <h3>{size}</h3>
             <img src={foto} width='150px' alt={size} style={{margin: '2px'}}/>
             <h4>$ {precio}</h4>
-            <ItemCount stock={stock} initial={0}/>
             <Link to={`/item/${id}`}>
                 <button style={{
                     margin: '10px',

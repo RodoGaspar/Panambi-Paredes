@@ -8,23 +8,36 @@ export const Cart = () =>{
     console.log('prods', prods)
     return(
         <>
+            <h1 style={{
+                                    backgroundColor: '#3e8f13',
+                                    color: '#fffd91',
+                                    padding: '2px',
+                                    textAlign: 'center',
+                                    height:'100%',
+                                }}>Tus Productos Elegidos</h1>
             {prods.length === 0 ? (
                 <h1>Carrito Vacío</h1>
             ) : (
                 prods.map((i) => {
+                    console.log('i', i)
                     return(
                         <>
-                            <div style={{
-                                backgroundColor: '#3e8f13',}}>
-                                <h1 style={{
+                            <div>
+                                <div style={{
                                     backgroundColor: '#3e8f13',
-                                    color: '#fffd91',
-                                    padding: '2px',
-                                    textAlign: 'center'
-                                }}>Tus Productos Elegidos</h1>
-                                <p>
-                                    {i.size} x {i.cantidad} = ${i.cantidad * i.precio}
-                                </p>
+                                    height:'100%',
+                                    display: 'flex',
+                                    flexDirection: 'row',
+                                    alignContent: 'space-between',}}>
+                                    
+                                    <p style={{
+                                        margin: '10px'
+                                    }}>
+                                        {i.props.size} x {i.cantidad} = ${i.cantidad * i.props.precio}
+                                    </p>
+                                    <button onClick={()=> carritoContx.removeItem(prods, i.props.id)}>X</button>
+                                </div>
+                                <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
                             </div>
                         </>
                     )
