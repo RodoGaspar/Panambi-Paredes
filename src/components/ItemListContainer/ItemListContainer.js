@@ -27,7 +27,6 @@ export const ItemListContainer = ({title}) => {
                 console.log(error);
             })
             }, []);
-            console.log('productos', produ)
 
     return (
         <>

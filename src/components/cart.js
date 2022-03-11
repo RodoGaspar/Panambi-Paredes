@@ -6,6 +6,9 @@ export const Cart = () =>{
     console.log('carritoContx', carritoContx)
     const prods = [...carritoContx.cart];
     console.log('prods', prods)
+    const precioTotal = () =>{
+        
+    }
     return(
         <>
             <h1 style={{
@@ -18,7 +21,8 @@ export const Cart = () =>{
             {prods.length === 0 ? (
                 <h1>Carrito Vacío</h1>
             ) : (
-                prods.map((i) => {
+                <>
+               { prods.map((i) => {
                     console.log('i', i)
                     return(
                         <>
@@ -35,13 +39,18 @@ export const Cart = () =>{
                                     }}>
                                         {i.props.size} x {i.cantidad} = ${i.cantidad * i.props.precio}
                                     </p>
+    
                                     <button onClick={()=> carritoContx.removeItem(prods, i.props.id)}>X</button>
                                 </div>
-                                <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
+                                
                             </div>
                         </>
                     )
-                })
+                })}
+                <p>Con un total de ${}</p>
+                <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
+
+                </>
             )}
             
         </>

@@ -18,7 +18,7 @@ export const NaviBar = () => {
                     <NavLink className="navLink" to={"/"}>Inicio</NavLink>
                     <NavLink className="navLink" to={"/category/category/id"}>Macetas</NavLink>
                     <NavLink className="navLink" to={"/category/category/id"}>Plantas</NavLink>
-                    <NavLink className="navLink" to={"#home"}><CartWidget className="navLink"/></NavLink>
+                    <NavLink className="navLink" to={"/cart"}><CartWidget className="navLink"/></NavLink>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

@@ -4,15 +4,18 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../context/cartContext';
 
 export const ItemDetail = ({props}) => {
-    const [cantidad, setCantidad] = useState(Number);
+    const [quantity, setQuantity] = useState(0);
     const addToCart = (numero)=>{
-        setCantidad(numero);
+        setQuantity(numero);
         console.log('numero', numero);
-        console.log('cantidad', cantidad);
+        console.log('quantity', quantity);
         
     };
+    const cantidad = quantity;
     const newCartContext = useContext(CartContext);
-    console.log('context', newCartContext)
+    console.log('context', newCartContext);
+    console.log('quantity', quantity);
+    console.log('quantity', typeof(quantity));
     return(
         <div
             style={{
@@ -44,13 +47,13 @@ export const ItemDetail = ({props}) => {
                     <h2>${props.precio}</h2>
                 </div>
             </div>
-            <div  style={{display: cantidad > 0 ? 'none' : 'block'}}>
+            <div  style={{display: quantity > 0 ? 'none' : 'block'}}>
                 <ItemCount stock={props.stock} initial={0} onAdd={(numero)=> addToCart(numero)} />
             </div>
             {console.log('props', props)}
             <Link to={'/cart'}> 
                 <button style={{
-                    display: cantidad > 0 ? 'block' : 'none',
+                    display: quantity > 0 ? 'block' : 'none',
                     backgroundColor: '#7830E6'}} onClick={()=> newCartContext.addItem({props, cantidad})}>Terminar Compra</button>
             </Link>
         </div>
