@@ -6,35 +6,31 @@ const [cart, setCart] = useState([]);
 const [cartSize, setCartSize] = useState(0);
 
 const addItem = (item, quant) =>{
-    setCart([...cart, {...item, quant}]);
-    setCartSize((prevState) => prevState + cart.cantidad);
-    /* if (isInCart(cart, props.id)){
-        const cartB = [...cart];
-        const repeatItem = cart.findIndex(
-            (producto) => producto.id === props.id 
-        )
-        cartB[repeatItem] = {
-            ...cartB[repeatItem], quantity: cartB[repeatItem].quantity + quantity,
-        }
-        setCart(cartB);
-        setCartSize((prevState) => prevState + cart.cantidad);
+    let itemQuant = {...item, quant};
+    if (!isInCart(item.id)) {
+        setCart([...cart, itemQuant]);
+        setCartSize((prevState) => prevState + itemQuant.quant);
     } else {
-        setCart([...cart, {...props, quantity}]);
-        setCartSize((prevState) => prevState + cart.cantidad);
-    };    */ 
+        const cartB = cart;
+        const pos = cart.findIndex((item) => item.id === itemQuant.id);
+        cartB[pos].quant = cartB[pos].quant + quant;
+        setCart(cartB);
+        setCartSize((prevState) => prevState + itemQuant.quant);
+    }; 
 };
 
-/* en Proceso, no logro resolverla */
- const removeItem = (cart, itemId) =>{
-    cart.filter(element => element.id !== itemId)
+const removeItem = (itemId) =>{
+    const cartAux = cart.filter(element => element.id !== itemId);
+    setCart(cartAux);
 };
 
 const clear = () => {
     setCart([]);
+    setCartSize(0)
 };
 
-const isInCart = (cart, id) => {
-    return cart.some(cartId => id === cartId); 
+const isInCart = (id) => {
+    return cart.some((e) => id === e.id); 
 }; 
 
     return(

@@ -54,7 +54,7 @@ export const ItemDetail = ({props}) => {
             <Link to={'/cart'}> 
                 <button style={{
                     display: quantity > 0 ? 'block' : 'none',
-                    backgroundColor: '#7830E6'}} onClick={()=> newCartContext.addItem({props, cantidad})}>Terminar Compra</button>
+                    backgroundColor: '#7830E6'}} onClick={()=> newCartContext.addItem(props, cantidad)}>Terminar Compra</button>
             </Link>
         </div>
     );
