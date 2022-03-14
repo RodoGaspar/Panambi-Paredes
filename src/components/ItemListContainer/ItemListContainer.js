@@ -1,32 +1,32 @@
 import {useEffect, useState} from "react";
 import './ItemListContainer.css';
-import { prods } from "../prods";
 import {ItemList} from "../ItemList";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../services/firebase";
+import { useParams } from "react-router-dom";
 
 export const ItemListContainer = ({title}) => {
-    const [produ, setProds] = useState([]);
+    const [produ, setProdu] = useState([]);
     const [cargando, setCargando] = useState(true);
-    const prodList = ()=>{
-        return new Promise((resolve, reject)=>{
-            const upProds = prods;
-            setTimeout(()=>{
-                resolve(upProds)
-            }, 2000)
-        })
-    }
 
-    
+   const { cat } = useParams;
+
+    const getData = async () => {
+        try{
+            const itemsCollection = collection(db, "itemCollection");
+            const col = await getDocs(itemsCollection);
+            const result = col.docs.map((doc) => doc = {id: doc.id, ...doc.data()});
+            setProdu(result);
+            setCargando(false);
+        } catch (error){
+            console.warn('error', error)
+        }
+    }
+    console.log('produ', produ)
 
     useEffect(() => {
-        prodList ()
-            .then((res) => {
-                setProds(res);
-                setCargando(false);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            }, []);
+        getData()
+    }, [cat])
 
     return (
         <>

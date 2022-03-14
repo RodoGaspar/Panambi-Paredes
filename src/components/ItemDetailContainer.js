@@ -1,33 +1,30 @@
 import  {ItemDetail}  from "./ItemDetail";
 import {useEffect, useState} from "react";
-import { prods } from "./prods";
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../services/firebase";
 
 export const ItemDetailContainer = () => {
    const {id} = useParams();
    const [itemProp, setItemProp] = useState ([]);
    const [loading, setLoading] = useState(true);
 
-   const getupProdsDB = (id) =>{
-       return new Promise((resolve, reject)=>{
-           const arrProdsDB = prods;
-           const itemPropAux = arrProdsDB.find((elemento)=>elemento.id===Number(id));
-           setItemProp(itemPropAux)
-           setTimeout(()=>{
-            resolve(itemProp)
-           }, 2000)
-       })
-   }
-   
+   const getItemProp = async () => {
+        try {
+            const document = doc(db, "itemCollection", id)
+            const response = await getDoc(document)
+            const result = {id: response.id, ...response.data() }
+            setItemProp(result)
+            setLoading(false)
+        } catch (error) {
+            console.warn('error', error)
+        }
+   };
 
    useEffect(() => {
-       const obtenerProducto = async (id) =>{
-           const respues = await getupProdsDB(id);
-           setLoading(false);
-           console.log('respues', respues);
-       }
-       obtenerProducto(id)
-        }, [id]);
+    getItemProp()
+   }, [id])
+
 
 
     return(

@@ -7,9 +7,9 @@ export const ItemDetail = ({props}) => {
     const [quantity, setQuantity] = useState(0);
     const addToCart = (numero)=>{
         setQuantity(numero);
+        newCartContext.addItem(props, numero) 
         console.log('numero', numero);
-        console.log('quantity', quantity);
-        
+        console.log('quantity', quantity);       
     };
     const cantidad = quantity;
     const newCartContext = useContext(CartContext);
@@ -54,7 +54,7 @@ export const ItemDetail = ({props}) => {
             <Link to={'/cart'}> 
                 <button style={{
                     display: quantity > 0 ? 'block' : 'none',
-                    backgroundColor: '#7830E6'}} onClick={()=> newCartContext.addItem(props, cantidad)}>Terminar Compra</button>
+                    backgroundColor: '#7830E6'}}>Terminar Compra</button>
             </Link>
         </div>
     );
