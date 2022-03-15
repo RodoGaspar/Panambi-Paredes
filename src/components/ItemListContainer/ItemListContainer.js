@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import './ItemListContainer.css';
 import {ItemList} from "../ItemList";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../services/firebase";
 import { useParams } from "react-router-dom";
 
@@ -9,7 +9,7 @@ export const ItemListContainer = ({title}) => {
     const [produ, setProdu] = useState([]);
     const [cargando, setCargando] = useState(true);
 
-   const { cat } = useParams;
+   const { category } = useParams;
 
     const getData = async () => {
         try{
@@ -24,9 +24,20 @@ export const ItemListContainer = ({title}) => {
     }
     console.log('produ', produ)
 
+    const getDataCategory_query = async () => {
+        try{
+            const q = query(collection(db, "itemCollection"), where("cat", "==", category));
+            const querySnapshot = await getDocs(q);
+            setProdu(querySnapshot.docs.map((doc) => doc = {id: doc.id, ...doc.data()}));
+            setCargando(false);
+        } catch (error){
+            console.warn('error', error)
+        }
+    }
+
     useEffect(() => {
-        getData()
-    }, [cat])
+        category?getDataCategory_query():getData()
+    }, [category])
 
     return (
         <>

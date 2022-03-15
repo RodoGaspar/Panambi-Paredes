@@ -16,9 +16,10 @@ export const NaviBar = () => {
                 <Navbar.Collapse id="basic-navbar-nav" variant="success">
                 <Nav className="navegador">
                     <NavLink className="navLink" to={"/"}>Inicio</NavLink>
-                    <NavLink className="navLink" to={"/category/category/id"}>Macetas</NavLink>
-                    <NavLink className="navLink" to={"/category/category/id"}>Plantas</NavLink>
+                    <NavLink className="navLink" to={"/category/category/:macetas"}>Macetas</NavLink>
+                    <NavLink className="navLink" to={"/category/category/:plantas"}>Plantas</NavLink>
                     <NavLink className="navLink" to={"/cart"}><CartWidget className="navLink"/></NavLink>
+                    
                 </Nav>
                 </Navbar.Collapse>
             </Container>
