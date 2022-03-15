@@ -9,7 +9,7 @@ export const ItemListContainer = ({title}) => {
     const [produ, setProdu] = useState([]);
     const [cargando, setCargando] = useState(true);
 
-   const { category } = useParams;
+   const { categoryId } = useParams;
 
     const getData = async () => {
         try{
@@ -26,8 +26,9 @@ export const ItemListContainer = ({title}) => {
 
     const getDataCategory_query = async () => {
         try{
-            const q = query(collection(db, "itemCollection"), where("cat", "==", category));
+            const q = query(collection(db, "itemCollection"), where("cat", "==", categoryId));
             const querySnapshot = await getDocs(q);
+            console.log('querySnapshot', querySnapshot)
             setProdu(querySnapshot.docs.map((doc) => doc = {id: doc.id, ...doc.data()}));
             setCargando(false);
         } catch (error){
@@ -36,8 +37,10 @@ export const ItemListContainer = ({title}) => {
     }
 
     useEffect(() => {
-        category?getDataCategory_query():getData()
-    }, [category])
+        categoryId ? getDataCategory_query() : getData()
+    }, [categoryId])
+
+    console.log('categoryId', categoryId)
 
     return (
         <>
