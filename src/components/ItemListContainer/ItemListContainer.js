@@ -9,7 +9,7 @@ export const ItemListContainer = ({title}) => {
     const [produ, setProdu] = useState([]);
     const [cargando, setCargando] = useState(true);
 
-   const { categoryId } = useParams;
+   const { categoryId } = useParams();
 
     const getData = async () => {
         try{
@@ -22,13 +22,11 @@ export const ItemListContainer = ({title}) => {
             console.warn('error', error)
         }
     }
-    console.log('produ', produ)
 
     const getDataCategory_query = async () => {
         try{
             const q = query(collection(db, "itemCollection"), where("cat", "==", categoryId));
             const querySnapshot = await getDocs(q);
-            console.log('querySnapshot', querySnapshot)
             setProdu(querySnapshot.docs.map((doc) => doc = {id: doc.id, ...doc.data()}));
             setCargando(false);
         } catch (error){
@@ -40,7 +38,8 @@ export const ItemListContainer = ({title}) => {
         categoryId ? getDataCategory_query() : getData()
     }, [categoryId])
 
-    console.log('categoryId', categoryId)
+    console.log('categoryId', categoryId);
+    console.log('produ', produ);
 
     return (
         <>
