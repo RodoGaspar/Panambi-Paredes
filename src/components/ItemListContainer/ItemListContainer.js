@@ -38,8 +38,7 @@ export const ItemListContainer = ({title}) => {
         categoryId ? getDataCategory_query() : getData()
     }, [categoryId])
 
-    console.log('categoryId', categoryId);
-    console.log('produ', produ);
+
 
     return (
         <>

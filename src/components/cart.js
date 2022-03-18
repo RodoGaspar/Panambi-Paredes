@@ -1,13 +1,63 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../context/cartContext";
 import { Link } from "react-router-dom";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { db } from "../services/firebase";
+
+const preBuyer = {
+    name: "",
+    phone: "",
+    email: "",
+}
 
 export const Cart = () =>{
     const carritoContx = useContext(CartContext);
-    console.log('carritoContx', carritoContx)
     const prods = [...carritoContx.cart];
-    console.log('prods', prods)
+    const [ buyer, setBuyer ] = useState(preBuyer)
+    const [ total, setTotal] = useState(0)
+
+    const sumTotal = () => {
+        setTotal(prods.reduce((acum, item)=> acum + (item.quant * item.precio), 0))
+    }
+
+    const order = {
+        buyer,
+        item: prods,
+        total,
+    }
+
+    const generateOrder = async (order) => {
+        const newOrder = await addDoc(collection(db, "orders"), {
+            ...order,
+            date: Timestamp.fromDate(new Date())
+        })
+        return newOrder
+    }
+
+    const handlerSubmit = (e) => {
+        e.preventDefault();
+        console.log("order", order)
+        console.log("buyer", buyer)
+        if (buyer.name !== "" && buyer.phone !== "" && buyer.email !== "" ){
+            
+            sumTotal()
+            generateOrder(order)
+                .then((res) => {
+                    alert(`Tu orden se envió con exito, el número de la misma es ${res.id}`)
+                })
+        } else {
+            alert("Hubo un error en el formulario, por favor verifica los datos")
+        }
+    }
+
+    const handlerChange = (e) => {
+        setBuyer({
+            ...buyer,
+            [e.target.name]: e.target.value,
+        })
+    }
     
+
     return(
         <>
             <h1 style={{
@@ -23,38 +73,61 @@ export const Cart = () =>{
                     <Link to={'/'}>Ir a la tienda</Link>
                 </>    
             ) : (
-                <>
-               { prods.map((i) => {
-                    console.log('i', i);
-                    console.log('iID', i.id);
-                    return(
-                        <>
-                            <div>
-                                <div 
-                                    style={{
-                                    backgroundColor: '#3e8f13',
-                                    height:'100%',
-                                    display: 'flex',
-                                    flexDirection: 'row',
-                                    alignContent: 'space-between',}}>
+            <>
+                { prods.map((i) => {
+                        return(
+                            <>
+                                <div>
+                                    <div 
+                                        style={{
+                                        backgroundColor: '#3e8f13',
+                                        height:'100%',
+                                        display: 'flex',
+                                        flexDirection: 'row',
+                                        alignContent: 'space-between',}}>
+                                        
+                                        <p style={{
+                                            margin: '10px'
+                                        }}>
+                                            {i.size} x {i.quant} = ${i.quant * i.precio}
+                                        </p>
+        
+                                        <button onClick={()=> carritoContx.removeItem(i.id)}>X</button>
+                                    </div>
                                     
-                                    <p style={{
-                                        margin: '10px'
-                                    }}>
-                                        {i.size} x {i.quant} = ${i.quant * i.precio}
-                                    </p>
-    
-                                    <button onClick={()=> carritoContx.removeItem(i.id)}>X</button>
                                 </div>
-                                
-                            </div>
-                        </>
-                    )
-                })}
-                <p>Con un total de ${prods.reduce((acum, item)=> acum + (item.quant * item.precio), 0)}</p>
-                <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
+                            </>
+                        )
+                    })}
+                    <p>Con un total de ${prods.reduce((acum, item)=> acum + (item.quant * item.precio), 0)}</p>
+                    <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
 
-                </>
+                    <form 
+                        onSubmit={handlerSubmit}
+                        onChange={handlerChange}
+                    >
+                        <input
+                            className=""
+                            type="text"
+                            placeholder="Nombre"
+                            value={order.name}
+                        />
+                        <input
+                            className=""
+                            type="number"
+                            placeholder="Teléfono"
+                            value={order.phone}
+                        />
+                        <input
+                            className=""
+                            type="email"
+                            placeholder="Email"
+                            value={order.email}
+                        />
+                        <button className="">Enviar Orden</button>                        
+
+                    </form>
+            </>
             )}
             
         </>

@@ -7,15 +7,11 @@ export const ItemDetail = ({props}) => {
     const [quantity, setQuantity] = useState(0);
     const addToCart = (numero)=>{
         setQuantity(numero);
-        newCartContext.addItem(props, numero) 
-        console.log('numero', numero);
-        console.log('quantity', quantity);       
+        newCartContext.addItem(props, numero);      
     };
     const cantidad = quantity;
     const newCartContext = useContext(CartContext);
-    console.log('context', newCartContext);
-    console.log('quantity', quantity);
-    console.log('quantity', typeof(quantity));
+
     return(
         <div
             style={{
@@ -50,7 +46,6 @@ export const ItemDetail = ({props}) => {
             <div  style={{display: quantity > 0 ? 'none' : 'block'}}>
                 <ItemCount stock={props.stock} initial={0} onAdd={(numero)=> addToCart(numero)} />
             </div>
-            {console.log('props', props)}
             <Link to={'/cart'}> 
                 <button style={{
                     display: quantity > 0 ? 'block' : 'none',
