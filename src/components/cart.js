@@ -104,25 +104,31 @@ export const Cart = () =>{
 
                     <form 
                         onSubmit={handlerSubmit}
-                        onChange={handlerChange}
+                        
                     >
                         <input
                             className=""
                             type="text"
                             placeholder="Nombre"
+                            name="name"
                             value={order.name}
+                            onChange={handlerChange}
                         />
                         <input
                             className=""
                             type="number"
                             placeholder="Teléfono"
+                            name="phone"
                             value={order.phone}
+                            onChange={handlerChange}
                         />
                         <input
                             className=""
                             type="email"
                             placeholder="Email"
+                            name="email"
                             value={order.email}
+                            onChange={handlerChange}
                         />
                         <button className="">Enviar Orden</button>                        
 
