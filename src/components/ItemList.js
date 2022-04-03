@@ -14,7 +14,7 @@ export const ItemList = ({prods}) => {
                 }}
             >
                 {prods.map((producto) => (
-                    <Col s={12} md={3} lg={3}>
+                    <Col s={12} md={6} lg={4}>
                         <Item {...producto} key={producto.id}/>
                     </Col>
                 ))}

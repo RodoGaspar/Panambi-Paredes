@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/cartContext";
 import { Link } from "react-router-dom";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
@@ -14,11 +14,11 @@ export const Cart = () =>{
     const carritoContx = useContext(CartContext);
     const prods = [...carritoContx.cart];
     const [ buyer, setBuyer ] = useState(preBuyer)
-    const [ total, setTotal] = useState(0)
+    const [ total, setTotal] = useState(0);
 
-    const sumTotal = () => {
-        setTotal(prods.reduce((acum, item)=> acum + (item.quant * item.precio), 0))
-    }
+    /* const sumTotal = () => {
+        setTotal(prods.reduce((acum, prods)=> acum + (prods.quant * prods.precio), 0))
+    }; */
 
     const order = {
         buyer,
@@ -39,8 +39,7 @@ export const Cart = () =>{
         console.log("order", order)
         console.log("buyer", buyer)
         if (buyer.name !== "" && buyer.phone !== "" && buyer.email !== "" ){
-            
-            sumTotal()
+
             generateOrder(order)
                 .then((res) => {
                     alert(`Tu orden se envió con exito, el número de la misma es ${res.id}`)
@@ -56,6 +55,20 @@ export const Cart = () =>{
             [e.target.name]: e.target.value,
         })
     }
+
+    const mailVer = (e) => {
+        if (e.target.value !== buyer.email) {
+            alert('verifica que el email sea correcto')
+        }
+    }
+
+    useEffect(() => {
+        if (prods.length !== 0) {
+            setTotal(prods.reduce((acum, prods)=> acum + (prods.quant * prods.precio), 0))
+        } else {
+            setTotal(0)
+        }
+    }, [prods])
     
 
     return(
@@ -129,6 +142,13 @@ export const Cart = () =>{
                             name="email"
                             value={order.email}
                             onChange={handlerChange}
+                        />
+                        <input
+                            className=""
+                            type="email"
+                            placeholder="Confirma tu Email"
+                            name="emailVerification"
+                            onBlur={mailVer}
                         />
                         <button className="">Enviar Orden</button>                        
 

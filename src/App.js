@@ -8,6 +8,7 @@ import { Home } from './components/Home/Home';
 import {Footer} from './components/Footer/Footer';
 import { Cart } from './components/Cart';
 import { CustomContex } from './context/CustomContex';
+import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
             <Route path='/item/:id' element={<ItemDetailContainer/>}/> 
             <Route path='/cart' element={<Cart/>}/>
+            <Route path='*' element={<NotFoundPage/>}/>
           </Routes>
           <Footer/>
       </BrowserRouter>
