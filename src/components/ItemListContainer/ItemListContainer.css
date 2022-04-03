@@ -3,4 +3,9 @@
     background: radial-gradient(circle, #3e8f13 0%, #b1ff86 100%);
     color: #fffd91;
     text-align: center;
+    height: 100%;
+}
+
+.listContainer__subTitle{
+    background-color: #892be27f;
 }

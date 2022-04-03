@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 export const ItemListContainer = ({title}) => {
     const [produ, setProdu] = useState([]);
     const [cargando, setCargando] = useState(true);
+    const [subTitle, setSubTitle] = useState("");
 
    const { categoryId } = useParams();
 
@@ -34,8 +35,10 @@ export const ItemListContainer = ({title}) => {
         }
     }
 
+
     useEffect(() => {
-        categoryId ? getDataCategory_query() : getData()
+        categoryId ? getDataCategory_query() : getData();
+        categoryId === "planta" ? setSubTitle("Plantas") : categoryId === "maceta" ? setSubTitle("Macetas") : setSubTitle("");
     }, [categoryId])
 
 
@@ -53,7 +56,8 @@ export const ItemListContainer = ({title}) => {
             ):(
                 <>
                     <div className="listContainer">
-                        <h1>{title}</h1>
+                        <h1 className="listContainer__title">{title}</h1>
+                        <h2 className="listContainer__subTitle">{subTitle}</h2>
                         <ItemList prods={produ}/>    
                     </div>
                 </>

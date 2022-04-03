@@ -16,10 +16,6 @@ export const Cart = () =>{
     const [ buyer, setBuyer ] = useState(preBuyer)
     const [ total, setTotal] = useState(0);
 
-    /* const sumTotal = () => {
-        setTotal(prods.reduce((acum, prods)=> acum + (prods.quant * prods.precio), 0))
-    }; */
-
     const order = {
         buyer,
         item: prods,
