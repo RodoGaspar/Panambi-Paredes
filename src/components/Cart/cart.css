@@ -1,0 +1,11 @@
+.cart--empty{
+    background-color: #892be27f;
+    display: flex;
+    flex-direction: column;
+    color: #fffd91;
+};
+
+.cart__title--empty{
+    background-color: #892be27f;
+    color: #fffd91;
+};

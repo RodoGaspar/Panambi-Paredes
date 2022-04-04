@@ -6,7 +6,7 @@ import {ItemDetailContainer} from './components/ItemDetailContainer';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { Home } from './components/Home/Home';
 import {Footer} from './components/Footer/Footer';
-import { Cart } from './components/Cart';
+import { Cart } from './components/Cart/Cart';
 import { CustomContex } from './context/CustomContex';
 import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 
