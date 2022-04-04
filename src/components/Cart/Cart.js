@@ -109,41 +109,64 @@ export const Cart = () =>{
             ) : (
             <>
                 <div style={{
-                    diplay: 'flex',
+                    display: 'flex',
                     flexDirection: 'row',
-                }}>
-                    { prods.map((i) => {
-                            return(
-                                <>
-                                    <div 
-                                        style={{
-                                        backgroundColor: '#3e8f13',
-                                        height:'100%',
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignContent: 'space-between',}}>
-                                        <h3 style={{
-                                            color:'#fffd91'
-                                        }}>{i.size}</h3>
-                                        <img src={i.foto} width='60rem' alt={i.size} style={{margin: '1rem'}}/>
-                                        <p style={{
-                                            margin: '10px'
-                                        }}>
-                                            {i.size} x {i.quant} = ${i.quant * i.precio}
-                                        </p>
-        
-                                        <button style={{
-                                            backgroundColor: '#892be27f'
-                                        }} onClick={()=> carritoContx.removeItem(i.id)}>Quitar Productos</button> 
-                                    </div>
-                                </>
-                            )
-                        })}
-                    <p>Con un total de ${prods.reduce((acum, item)=> acum + (item.quant * item.precio), 0)}</p>
-                    <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
-                    <div>
+                    alignItems:'flex-start',
+                    backgroundColor:'#3e8f13 '
+                    }}>
+                    <div style={{
+                        width:'45vw'
+                    }}>
+                        { prods.map((i) => {
+                                return(
+                                    <>
+                                        <div 
+                                            style={{
+                                            backgroundColor: '#3e8f13',
+                                            height:'100%',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignContent: 'space-between',}}>
+                                            <h3 style={{
+                                                color:'#fffd91'
+                                            }}>{i.size}</h3>
+                                            <img src={i.foto} width='60rem' alt={i.size} style={{margin: '1rem'}}/>
+                                            <p style={{
+                                                margin: '10px'
+                                            }}>
+                                                {i.size} x {i.quant} = ${i.quant * i.precio}
+                                            </p>
+            
+                                            <button style={{
+                                                backgroundColor: '#892be27f'
+                                            }} onClick={()=> carritoContx.removeItem(i.id)}>Quitar Productos</button> 
+                                        </div>
+                                    </>
+                                )
+                            })}
+                        <div style={{
+                            backgroundColor:'#3e8f13 ',
+                            color:'#fffd91'
+                            }}>
+                        <p>Con un total de ${prods.reduce((acum, item)=> acum + (item.quant * item.precio), 0)}</p>
+                        <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
+                        </div>
+                    </div>
+                    
+                    <div style={{
+                        width:'45vw',
+                        alignSelf:'rigth',
+                    }}>
+                    <h2 style={{
+                        backgroundColor:'#3e8f13',
+                        color:'#fffd91'
+                    }}>Completa tus datos para realizar el pedido</h2>
                         <form 
-                            onSubmit={handlerSubmit}   
+                            onSubmit={handlerSubmit}
+                            style={{
+                                display:'flex',
+                                flexDirection:'column'
+                            }}   
                         >
                             <input
                                 id="buyer__Name"
