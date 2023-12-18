@@ -85,127 +85,129 @@ export const Cart = () =>{
 
     return(
         <>
-            <h1 style={{
-                backgroundColor: '#3e8f13',
-                color: '#fffd91',
-                padding: '2px',
-                textAlign: 'center',
-                height:'100%',
-            }}>
-            Tus Productos Elegidos</h1>
-            {prods.length === 0 ? (
-                <>
-                    <div className="cart--empty">
-                        <h1 className="cart__title--empty">Carrito Vacío</h1>
-                        
-                            <Link style={{
-                                backgroundColor: '#b1ff86', 
-                                color: '#3e8f13', 
-                                textDecoration: 'none',
-                                alignSelf:'center'
-                                }} to={'/'}>Vuelve a la tienda</Link>
-                    </div>
-                </>    
-            ) : (
-            <>
-                <div style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    alignItems:'flex-start',
-                    backgroundColor:'#3e8f13 '
-                    }}>
-                    <div style={{
-                        width:'45vw'
-                    }}>
-                        { prods.map((i) => {
-                                return(
-                                    <>
-                                        <div 
-                                            style={{
-                                            backgroundColor: '#3e8f13',
-                                            height:'100%',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            alignContent: 'space-between',}}>
-                                            <h3 style={{
-                                                color:'#fffd91'
-                                            }}>{i.size}</h3>
-                                            <img src={i.foto} width='60rem' alt={i.size} style={{margin: '1rem'}}/>
-                                            <p style={{
-                                                margin: '10px'
-                                            }}>
-                                                {i.size} x {i.quant} = ${i.quant * i.precio}
-                                            </p>
-            
-                                            <button style={{
-                                                backgroundColor: '#892be27f'
-                                            }} onClick={()=> carritoContx.removeItem(i.id)}>Quitar Productos</button> 
-                                        </div>
-                                    </>
-                                )
-                            })}
-                        <div style={{
-                            backgroundColor:'#3e8f13 ',
-                            color:'#fffd91'
-                            }}>
-                        <p>Con un total de ${prods.reduce((acum, item)=> acum + (item.quant * item.precio), 0)}</p>
-                        <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
+            <div style={{backgroundColor: '#892be27',}}>    
+                <h1 style={{
+                    backgroundColor: '#3e8f13',
+                    color: '#fffd91',
+                    padding: '2px',
+                    textAlign: 'center',
+                    height:'100%',
+                }}>
+                Tus Productos Elegidos</h1>
+                {prods.length === 0 ? (
+                    <>
+                        <div className="cart--empty">
+                            <h1 className="cart__title--empty">Carrito Vacío</h1>
+                            
+                                <Link style={{
+                                    backgroundColor: '#b1ff86', 
+                                    color: '#3e8f13', 
+                                    textDecoration: 'none',
+                                    alignSelf:'center'
+                                    }} to={'/'}>Vuelve a la tienda</Link>
                         </div>
-                    </div>
-                    
+                    </>    
+                ) : (
+                <>
                     <div style={{
-                        width:'45vw',
-                        alignSelf:'rigth',
-                    }}>
-                    <h2 style={{
-                        backgroundColor:'#3e8f13',
-                        color:'#fffd91'
-                    }}>Completa tus datos para realizar el pedido</h2>
-                        <form 
-                            onSubmit={handlerSubmit}
-                            style={{
-                                display:'flex',
-                                flexDirection:'column'
-                            }}   
-                        >
-                            <input
-                                id="buyer__Name"
-                                type="text"
-                                placeholder="Nombre"
-                                name="name"
-                                value={order.name}
-                                onChange={handlerChange}
-                            />
-                            <input
-                                id="buyer__phone"
-                                type="number"
-                                placeholder="Teléfono"
-                                name="phone"
-                                value={order.phone}
-                                onChange={handlerChange}
-                            />
-                            <input
-                                id="buyer__email"
-                                type="email"
-                                placeholder="Email"
-                                name="email"
-                                value={order.email}
-                                onChange={handlerChange}
-                            />
-                            <input
-                                className=""
-                                type="email"
-                                placeholder="Confirma tu Email"
-                                name="emailVerification"
-                                onBlur={mailVer}
-                            />
-                            <button className="">Enviar Orden</button>                        
+                        display: 'flex',
+                        flexDirection: 'row',
+                        alignItems:'flex-start',
+                        backgroundColor:'#3e8f13 '
+                        }}>
+                        <div style={{
+                            width:'45vw'
+                        }}>
+                            { prods.map((i) => {
+                                    return(
+                                        <>
+                                            <div 
+                                                style={{
+                                                backgroundColor: '#3e8f13',
+                                                height:'100%',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                alignContent: 'space-between',}}>
+                                                <h3 style={{
+                                                    color:'#fffd91'
+                                                }}>{i.size}</h3>
+                                                <img src={i.foto} width='60rem' alt={i.size} style={{margin: '1rem'}}/>
+                                                <p style={{
+                                                    margin: '10px'
+                                                }}>
+                                                    {i.size} x {i.quant} = ${i.quant * i.precio}
+                                                </p>
+                
+                                                <button style={{
+                                                    backgroundColor: '#892be27f'
+                                                }} onClick={()=> carritoContx.removeItem(i.id)}>Quitar Productos</button> 
+                                            </div>
+                                        </>
+                                    )
+                                })}
+                            <div style={{
+                                backgroundColor:'#3e8f13 ',
+                                color:'#fffd91'
+                                }}>
+                            <p>Con un total de ${prods.reduce((acum, item)=> acum + (item.quant * item.precio), 0)}</p>
+                            <button onClick={()=> carritoContx.clear()}>Vaciar Carrito</button>
+                            </div>
+                        </div>
+                        
+                        <div style={{
+                            width:'45vw',
+                            alignSelf:'rigth',
+                        }}>
+                        <h2 style={{
+                            backgroundColor:'#3e8f13',
+                            color:'#fffd91'
+                        }}>Completa tus datos para realizar el pedido</h2>
+                            <form 
+                                onSubmit={handlerSubmit}
+                                style={{
+                                    display:'flex',
+                                    flexDirection:'column'
+                                }}   
+                            >
+                                <input
+                                    id="buyer__Name"
+                                    type="text"
+                                    placeholder="Nombre"
+                                    name="name"
+                                    value={order.name}
+                                    onChange={handlerChange}
+                                />
+                                <input
+                                    id="buyer__phone"
+                                    type="number"
+                                    placeholder="Teléfono"
+                                    name="phone"
+                                    value={order.phone}
+                                    onChange={handlerChange}
+                                />
+                                <input
+                                    id="buyer__email"
+                                    type="email"
+                                    placeholder="Email"
+                                    name="email"
+                                    value={order.email}
+                                    onChange={handlerChange}
+                                />
+                                <input
+                                    className=""
+                                    type="email"
+                                    placeholder="Confirma tu Email"
+                                    name="emailVerification"
+                                    onBlur={mailVer}
+                                />
+                                <button className="">Enviar Orden</button>                        
 
-                        </form>
-                    </div>    
-                </div>
-            </>
-            )}
+                            </form>
+                        </div>    
+                    </div>
+                </>
+                )}
+            </div>    
             
         </>
     )
