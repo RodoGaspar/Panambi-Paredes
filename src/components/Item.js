@@ -8,6 +8,7 @@ export const Item = ({id, size, foto, precio, stock}) => {
                 flexDirection: 'column',
                 border: '2px solid #8F6B8f',
                 margin: '4rem',
+                padding: '1rem',
                 justifyContent: 'center',
                 alignItems: 'center',
                 backgroundColor: '#3e8f13',
