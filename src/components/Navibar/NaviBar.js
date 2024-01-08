@@ -9,12 +9,12 @@ import { NavLink } from "react-router-dom";
 
 export const NaviBar = () => {
     return (    
-        <Navbar collapseOnSelect expand="md"  className='bg-cabezon'>
+        <Navbar collapseOnSelect expand="lg"  className='bg-cabezon'>
             <Container>
                 <Navbar.Brand href="/"><img className="logopanambi" src={LogoPanambi} alt="Logo de Panambí"/></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse  bg="success" id="basic-navbar-nav" variant="success">
-                <Nav className="navegador">
+                <Nav className="navegador d-flex flex-row">
                     <NavLink className="navLink" to={"/"}>Inicio</NavLink>
                     <NavLink className="navLink" to={"/category/maceta"}>Macetas</NavLink>
                     <NavLink className="navLink" to={"/category/planta"}>Plantas</NavLink>

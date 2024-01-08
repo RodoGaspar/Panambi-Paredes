@@ -6,7 +6,7 @@ export const Item = ({id, size, foto, precio, stock}) => {
             style={{
                 display: 'flex',
                 flexDirection: 'column',
-                border: '2px solid #8F6B8f',
+                border: '2px solid  #09daff',
                 margin: '4rem',
                 padding: '1rem',
                 justifyContent: 'center',
@@ -22,7 +22,9 @@ export const Item = ({id, size, foto, precio, stock}) => {
                 <button style={{
                     margin: '1rem',
                     justifySelf:'center',
+                    color:'#09daff',
                     backgroundColor: '#a15ce2d0',
+                    fontWeight: '500',
                 }}>Ver Más</button>
             </Link>
 
