@@ -9,7 +9,9 @@ export const ItemDetailContainer = () => {
    const [itemProp, setItemProp] = useState ([]);
    const [loading, setLoading] = useState(true);
 
-   const getItemProp = async () => {
+
+   useEffect(() => {
+    const getItemProp = async () => {
         try {
             const document = doc(db, "itemCollection", id)
             const response = await getDoc(document)
@@ -19,11 +21,9 @@ export const ItemDetailContainer = () => {
         } catch (error) {
             console.warn('error', error)
         }
-   };
-
-   useEffect(() => {
-    getItemProp()
-   }, [id])
+    };
+    getItemProp();
+   }, [id]);
 
 
 

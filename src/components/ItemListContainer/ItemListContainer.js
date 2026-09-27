@@ -12,31 +12,32 @@ export const ItemListContainer = ({title}) => {
 
    const { categoryId } = useParams();
 
-    const getData = async () => {
-        try{
-            const itemsCollection = collection(db, "itemCollection");
-            const col = await getDocs(itemsCollection);
-            const result = col.docs.map((doc) => doc = {id: doc.id, ...doc.data()});
-            setProdu(result);
-            setCargando(false);
-        } catch (error){
-            console.warn('error', error)
-        }
-    }
 
-    const getDataCategory_query = async () => {
-        try{
-            const q = query(collection(db, "itemCollection"), where("cat", "==", categoryId));
-            const querySnapshot = await getDocs(q);
-            setProdu(querySnapshot.docs.map((doc) => doc = {id: doc.id, ...doc.data()}));
-            setCargando(false);
-        } catch (error){
-            console.warn('error', error)
-        }
-    }
+    
 
 
     useEffect(() => {
+        const getData = async () => {
+            try{
+                const itemsCollection = collection(db, "itemCollection");
+                const col = await getDocs(itemsCollection);
+                const result = col.docs.map((doc) => ({id: doc.id, ...doc.data()}));
+                setProdu(result);
+                setCargando(false);
+            } catch (error){
+                console.warn('error', error)
+            }
+        };
+        const getDataCategory_query = async () => {
+            try{
+                const q = query(collection(db, "itemCollection"), where("cat", "==", categoryId));
+                const querySnapshot = await getDocs(q);
+                setProdu(querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})));
+                setCargando(false);
+            } catch (error){
+                console.warn('error', error)
+            }
+        }
         categoryId ? getDataCategory_query() : getData();
         categoryId === "planta" ? setSubTitle("Plantas") : categoryId === "maceta" ? setSubTitle("Macetas") : setSubTitle("");
     }, [categoryId])

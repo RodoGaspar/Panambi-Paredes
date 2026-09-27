@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { CartContext } from "../../context/cartContext";
 import { Link } from "react-router-dom";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
@@ -14,7 +14,7 @@ const preBuyer = {
 
 export const Cart = () =>{
     const carritoContx = useContext(CartContext);
-    const prods = [...carritoContx.cart];
+    const prods = useMemo(() => [...carritoContx.cart], [carritoContx.cart]);
     const [ buyer, setBuyer ] = useState(preBuyer)
     const [ total, setTotal] = useState(0);
 
@@ -120,29 +120,28 @@ export const Cart = () =>{
                         }}>
                             { prods.map((i) => {
                                     return(
-                                        <>
-                                            <div 
-                                                style={{
-                                                backgroundColor: '#3e8f13',
-                                                height:'100%',
-                                                display: 'flex',
-                                                flexDirection: 'column',
-                                                alignContent: 'space-between',}}>
-                                                <h3 style={{
-                                                    color:'#fffd91'
-                                                }}>{i.size}</h3>
-                                                <img src={i.foto} width='60rem' alt={i.size} style={{margin: '1rem'}}/>
-                                                <p style={{
-                                                    margin: '10px'
-                                                }}>
-                                                    {i.size} x {i.quant} = ${i.quant * i.precio}
-                                                </p>
-                
-                                                <button style={{
-                                                    backgroundColor: '#892be27f'
-                                                }} onClick={()=> carritoContx.removeItem(i.id)}>Quitar Productos</button> 
-                                            </div>
-                                        </>
+                                        <div
+                                            key={i.id} 
+                                            style={{
+                                            backgroundColor: '#3e8f13',
+                                            height:'100%',
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignContent: 'space-between',}}>
+                                            <h3 style={{
+                                                color:'#fffd91'
+                                            }}>{i.size}</h3>
+                                            <img src={i.foto} width='60rem' alt={i.size} style={{margin: '1rem'}}/>
+                                            <p style={{
+                                                margin: '10px'
+                                            }}>
+                                                {i.size} x {i.quant} = ${i.quant * i.precio}
+                                            </p>
+            
+                                            <button style={{
+                                                backgroundColor: '#892be27f'
+                                            }} onClick={()=> carritoContx.removeItem(i.id)}>Quitar Productos</button> 
+                                        </div>
                                     )
                                 })}
                             <div style={{
@@ -174,7 +173,7 @@ export const Cart = () =>{
                                     type="text"
                                     placeholder="Nombre"
                                     name="name"
-                                    value={order.name}
+                                    value={buyer.name}
                                     onChange={handlerChange}
                                 />
                                 <input
@@ -182,7 +181,7 @@ export const Cart = () =>{
                                     type="number"
                                     placeholder="Teléfono"
                                     name="phone"
-                                    value={order.phone}
+                                    value={buyer.phone}
                                     onChange={handlerChange}
                                 />
                                 <input
@@ -190,7 +189,7 @@ export const Cart = () =>{
                                     type="email"
                                     placeholder="Email"
                                     name="email"
-                                    value={order.email}
+                                    value={buyer.email}
                                     onChange={handlerChange}
                                 />
                                 <input

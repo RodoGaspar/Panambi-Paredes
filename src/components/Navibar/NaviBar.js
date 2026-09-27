@@ -11,7 +11,7 @@ export const NaviBar = () => {
     return (    
         <Navbar collapseOnSelect expand="lg"  className='bg-cabezon'>
             <Container>
-                <Navbar.Brand href="/"><img className="logopanambi" src={LogoPanambi} alt="Logo de Panambí"/></Navbar.Brand>
+                <Navbar.Brand as={NavLink} to="/"><img className="logopanambi" src={LogoPanambi} alt="Logo de Panambí"/></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse  bg="success" id="basic-navbar-nav" variant="success">
                 <Nav className="navegador d-flex flex-row">

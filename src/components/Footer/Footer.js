@@ -14,16 +14,16 @@ export const Footer = () => {
                 <section className="redesSociales">
                     <p>Contactanos</p>
                     <ul>
-                        <li><a href=""><img src={gml} alt="logo de gmail"/></a>
+                        <li><a href="mailto:panambiplantas@gmail.com"><img src={gml} alt="logo de gmail"/></a>
                             <p>panambiplantas@gmail.com</p>
                         </li>
-                        <li><a href="https://www.instagram.com/panambi_plantas" target="_blank"><img src={inst} alt="logo de Instagram"/></a>
+                        <li><a href="https://www.instagram.com/panambi_plantas" target="_blank" rel="noreferrer"><img src={inst} alt="logo de Instagram"/></a>
                             <p>@panambi_plantas</p>
                         </li>
-                        <li><a href="https://www.facebook.com/panambiplantas" target="_blank"><img src={fcbk} alt="logo de facebook"/></a>
+                        <li><a href="https://www.facebook.com/panambiplantas" target="_blank" rel="noreferrer"><img src={fcbk} alt="logo de facebook"/></a>
                             <p>/panambiplantas</p>
                         </li>
-                        <li><a href=""><img src={whsp} alt="logo de whatsapp"/></a>
+                        <li><a href="https://wa.me/54911090917"><img src={whsp} alt="logo de whatsapp"/></a>
                             <p>+54911090917</p>
                         </li>
                     </ul>

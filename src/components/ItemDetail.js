@@ -5,12 +5,12 @@ import { CartContext } from '../context/cartContext';
 
 export const ItemDetail = ({props}) => {
     const [quantity, setQuantity] = useState(0);
+    const newCartContext = useContext(CartContext);
+
     const addToCart = (numero)=>{
         setQuantity(numero);
         newCartContext.addItem(props, numero);      
     };
-    const cantidad = quantity;
-    const newCartContext = useContext(CartContext);
 
     return(
         <div
